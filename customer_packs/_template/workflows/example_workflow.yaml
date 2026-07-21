@@ -1,0 +1,22 @@
+# State -> destination routing + confidence thresholds for this pack. The
+# WorkflowEngine and ConfidenceEngine are pack-agnostic; this file is what
+# makes their behavior specific to one customer.
+
+name: example_workflow
+
+confidence:
+  strategy: weighted_average
+  thresholds:
+    auto: 0.9
+    review: 0.6
+
+routing:
+  ROUTED_VALID:
+    destination: csv
+    config:
+      path: ".data/exports/example.csv"
+  ROUTED_INVALID:
+    destination: none
+    notify_template: templates/missing_document.txt
+  ROUTED_REVIEW:
+    destination: none

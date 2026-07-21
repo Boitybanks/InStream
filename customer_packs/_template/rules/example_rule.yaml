@@ -1,0 +1,19 @@
+# A deterministic rule — the RulesEngine evaluates this condition tree with
+# no AI involved. applies_to scopes the rule to documents already classified
+# as `bank_statement`; condition/on_fail/on_pass follow the RuleDefinition
+# schema in packages/rules/instream_rules/dsl.py.
+
+id: bank_statement_recency
+version: 1
+applies_to:
+  doc_type: bank_statement
+condition:
+  op: lte
+  field: document.age_days
+  value: 90
+on_fail:
+  severity: FAIL
+  message: "Bank statement is older than 3 months"
+on_pass:
+  severity: PASS
+  message: "Bank statement is within the required 3-month window"

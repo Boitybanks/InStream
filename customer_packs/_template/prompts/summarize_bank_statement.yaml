@@ -1,0 +1,11 @@
+# Prompt templates are pack-owned config, not code — a real AIProvider
+# (AnthropicProvider, once wired with a key) reads these keyed by task +
+# doc_type. The MockAIProvider used in Phase 1 ignores this file entirely;
+# it exists to document the intended shape for later phases.
+
+task: summarize
+doc_type: bank_statement
+prompt: |
+  Summarize the key details of this bank statement in two sentences,
+  focusing on the account holder's name, the statement period, and the
+  closing balance. Do not invent values that are not present in the text.

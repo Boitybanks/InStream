@@ -1,0 +1,10 @@
+# Every customer pack is a directory with a pack.yaml manifest like this one,
+# plus rules/, prompts/, mappings/, templates/, and workflows/ subfolders.
+# This _template pack has zero real business rules — it exists purely to
+# show the required shape. `discovery/` (Phase 2) is the first real pack.
+
+name: _template
+version: "0.1.0"
+display_name: "Template Pack (reference only — not a real customer)"
+enabled_workflows:
+  - example_workflow

@@ -1,0 +1,9 @@
+Hi {{ recipient_name }},
+
+We could not process your submission because the following document is
+missing or invalid: {{ document_name }}.
+
+Please reply to this email with the correct document attached.
+
+Kind regards,
+{{ tenant_name }}

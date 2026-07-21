@@ -1,0 +1,10 @@
+# Maps a classified document's extracted fields onto destination columns.
+# Consumed by a DestinationConnector's write() call once field-mapping
+# support lands (Phase 2, alongside the Discovery pack) — not yet read by
+# the Phase 1 pipeline, which writes a fixed record shape.
+
+doc_type: bank_statement
+destination_fields:
+  account_holder: fields.account_holder
+  statement_period: fields.statement_period
+  closing_balance: fields.closing_balance

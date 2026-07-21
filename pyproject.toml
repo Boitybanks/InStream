@@ -1,0 +1,40 @@
+[project]
+name = "instream-workspace"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "instream-api",
+    "instream-worker",
+]
+
+[tool.uv.workspace]
+members = ["apps/api", "apps/worker", "packages/*"]
+
+[tool.uv.sources]
+instream-shared = { workspace = true }
+instream-db = { workspace = true }
+instream-connectors = { workspace = true }
+instream-ingestion = { workspace = true }
+instream-ocr = { workspace = true }
+instream-ai = { workspace = true }
+instream-rules = { workspace = true }
+instream-workflow = { workspace = true }
+instream-confidence = { workspace = true }
+instream-destinations = { workspace = true }
+instream-audit = { workspace = true }
+instream-analytics = { workspace = true }
+instream-notifications = { workspace = true }
+instream-auth = { workspace = true }
+instream-api = { workspace = true }
+instream-worker = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "packages", "apps"]
+asyncio_mode = "auto"
